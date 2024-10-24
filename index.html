@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Zeichensatzdefinition -->
+    <meta charset="UTF-8">
+    <!-- Beschreibung der Website -->
+    <meta name="description" content="Willkommen bei Cliffer, Ihrem Hobbyshop für handgefertigte und einzigartige Kleidungsstücke. Entdecken Sie unsere exklusive Auswahl an Modeprodukten.">
+    <!-- Schlüsselwörter für die Suche -->
+    <meta name="keywords" content="handgefertigte Kleidung, einzigartige Mode, Hobbyshop, exklusive Kleidungsstücke, handgemachte Mode, nachhaltige Mode, Herrenmode">
+    <!-- Einstellung für die Anzeige auf mobilen Geräten -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="icon" href="../Modulprüfung Website (M293)/fotos/logocliffer.ico" type="image/x-icon">
+    <!-- Titel der Seite -->
+    <title>Startseite | Cliffer</title>
+    <!-- Geografische Region -->
+    <meta name="geo.region" content="CH-NW">
+    <!-- Verknüpfung zu einer externen CSS-Datei -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!-- Kopfbereich der Seite -->
+    <header class="mitte" id="mitte">
+        <!-- Logo mit Link zur Startseite -->
+        <a href="/">
+            <img width="300" src="logocliffer.jpg" alt="Logo Cliffer">
+        </a>
+    </header>
+
+    <!-- Navigation der Seite -->
+    <nav>
+        <ul class="mitte">
+            <!-- Links zu anderen Seiten der Website -->
+            <li><a href="index.html">Startseite</a></li>
+            <li class="lego222-dropdown">
+                <a href="products.html">Unsere Produkte</a>
+                <ul class="lego222-dropdown-content">
+                    <li><a href="shoes.html">Schuhe</a></li>
+                    <li><a href="clothing.html">Kleidungsstücke</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hauptinhalt der Seite -->
+    <section>
+        <!-- Begrüßung und Einführung -->
+        <h1>Willkommen bei unserem Hobbyshop Cliffer.</h1>
+        <p>Entdecken Sie unsere exklusive Auswahl an Kleidungsstücken, die mit Liebe und Sorgfalt entworfen wurden.</p>
+    </section>
+
+    <section>
+        <!-- Informationen über das Unternehmen -->
+        <h2>Über uns</h2>
+        <p>HobbyShop ist Ihre Anlaufstelle für handgefertigte und einzigartige Kleidungsstücke. Wir legen großen Wert auf Qualität und Originalität, um Ihnen die besten Produkte zu bieten.</p>
+        <p>Unsere Kollektionen sind das Ergebnis jahrelanger Erfahrung und Leidenschaft für Mode. Jedes Stück wird sorgfältig ausgewählt und geprüft, um unseren hohen Standards zu entsprechen.</p>
+    </section>
+
+    <section>
+        <p> FINDEN SIE DIE SECRET SITE.</p>
+        <h2> TIP: /secretsite.html</h2>
+    </section>
+
+    <!-- Cookie-Banner -->
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; width: 100%; background: #333; color: #fff; text-align: center; padding: 10px;">
+        <p>Diese Website verwendet Cookies, um die bestmögliche Funktionalität bieten zu können. <a href="datenschutz.html" style="color: #fff; text-decoration: underline;">Mehr erfahren</a></p>
+        <button id="accept-cookies" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer;">Akzeptieren</button>
+        <button id="reject-cookies" style="background: #f44336; color: white; border: none; padding: 10px 20px; cursor: pointer;">Ablehnen</button>
+    </div>
+
+    <!-- Einbindung der JavaScript-Bibliothek für Cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+        // Warte bis das DOM geladen ist
+    document.addEventListener('DOMContentLoaded', function () {
+        // Überprüfe, ob der Benutzer bereits eine Entscheidung getroffen hat
+        if (Cookies.get('cookiesAccepted')) {
+            // Cookies wurden akzeptiert, verstecke den Cookie-Banner
+            document.getElementById('cookie-banner').style.display = 'none';
+        } else if (Cookies.get('cookiesRejected')) {
+            // Cookies wurden abgelehnt, entferne den Cookie-Banner vollständig
+            document.getElementById('cookie-banner').remove();
+        } else {
+            // Keine Entscheidung getroffen, zeige den Cookie-Banner
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+
+        // Event-Listener für "Akzeptieren"-Button
+        document.getElementById('accept-cookies').addEventListener('click', function () {
+            Cookies.set('cookiesAccepted', 'true', { expires: 365 });
+            document.getElementById('cookie-banner').style.display = 'none';
+        });
+
+        // Event-Listener für "Ablehnen"-Button
+        document.getElementById('reject-cookies').addEventListener('click', function () {
+            Cookies.set('cookiesRejected', 'true', { expires: 365 });
+            document.getElementById('cookie-banner').remove();
+        });
+    });
+    </script>    
+    <!-- Fußbereich der Seite -->
+    <footer>
+        &copy; 2024 Cliffer Shop.
+        <!-- Links zu Impressum und Datenschutz -->
+        <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Zeichensatzdefinition -->
+    <meta charset="UTF-8">
+    <!-- Beschreibung der Website -->
+    <meta name="description" content="Willkommen bei Cliffer, Ihrem Hobbyshop für handgefertigte und einzigartige Kleidungsstücke. Entdecken Sie unsere exklusive Auswahl an Modeprodukten.">
+    <!-- Schlüsselwörter für die Suche -->
+    <meta name="keywords" content="handgefertigte Kleidung, einzigartige Mode, Hobbyshop, exklusive Kleidungsstücke, handgemachte Mode, nachhaltige Mode, Herrenmode">
+    <!-- Einstellung für die Anzeige auf mobilen Geräten -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="icon" href="../Modulprüfung Website (M293)/fotos/logocliffer.ico" type="image/x-icon">
+    <!-- Titel der Seite -->
+    <title>Schuhe | Cliffer</title>
+    <!-- Geografische Region -->
+    <meta name="geo.region" content="CH-NW">
+    <!-- Verknüpfung zu einer externen CSS-Datei -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Einbindung der JavaScript-Bibliothek für Cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+<body>
+    <!-- Kopfbereich der Seite -->
+    <header class="mitte" id="mitte">
+        <!-- Logo mit Link zur Startseite -->
+        <a href="index.html">
+            <img width="300" src="logocliffer.jpg" alt="Logo Cliffer" />
+        </a>
+
+        <!-- Warenkorb-Anzeige in der Navigation -->
+        <div id="cart-container">
+            <a href="warenkorb.html">Warenkorb (<span id="cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <!-- Navigation der Seite -->
+    <nav>
+        <ul class="mitte">
+            <!-- Links zu anderen Seiten der Website -->
+            <li><a href="index.html">Startseite</a></li>
+            <li class="lego222-dropdown">
+                <a href="products.html">Unsere Produkte</a>
+                <ul class="lego222-dropdown-content">
+                    <li><a href="shoes.html">Schuhe</a></li>
+                    <li><a href="clothing.html">Kleidungsstücke</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hauptinhalt der Seite -->
+    <section class="shoes">
+        <!-- Überschrift und Beschreibung -->
+        <h1>Schuhe</h1>
+        <p>Entdecke unsere große Auswahl an Sneakers für jede Gelegenheit.</p>
+        
+        <!-- Produktbereich -->
+        <div class="product">
+            <!-- Einzelnes Produkt -->
+            <div class="product-box">
+                <div class="product-item product-itemgrau"> <!-- Klasse product-itemgrau direkt hinzugefügt -->
+                    <img src="shoe.jpg" alt="Sneaker 1">
+                    <h2>Cliffer Sneaker Modell 1</h2>
+                    <div class="addToCart" data-product-name="Cliffer Sneaker Modell 1" data-product-price="80">Zum Warenkorb hinzufügen</div>
+                    <p>Preis: 80 Fr.</p>
+                </div>
+            </div>
+    
+            <div class="product-box">
+                <div class="product-item product-itemgrau"> <!-- Klasse product-itemgrau direkt hinzugefügt -->
+                    <img src="shoe.jpg" alt="Sneaker 2">
+                    <h2>Cliffer Sneaker Modell 2</h2>
+                    <div class="addToCart" data-product-name="Cliffer Sneaker Modell 2" data-product-price="80">Zum Warenkorb hinzufügen</div>
+                    <p>Preis: 80 Fr.</p>
+                </div>
+            </div>
+    
+            <div class="product-box">
+                <div class="product-item product-itemgrau"> <!-- Klasse product-itemgrau direkt hinzugefügt -->
+                    <img src="shoe.jpg" alt="Sneaker 3">
+                    <h2>Cliffer Sneaker Modell 3</h2>
+                    <div class="addToCart" data-product-name="Cliffer Sneaker Modell 3" data-product-price="80">Zum Warenkorb hinzufügen</div>
+                    <p>Preis: 80 Fr.</p>
+                </div>
+            </div>
+            <!-- Weitere Produkte hinzufügen -->
+        </div>
+    </section>
+    
+    <!-- Fußbereich der Seite -->
+    <footer>&copy; 2024 Cliffer Shop. <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></footer>
+
+    <!-- Cookie-Banner -->
+    <div id="cookie-banner" style="display:none; position: fixed; bottom: 0; width: 100%; background: #333; color: #fff; text-align: center; padding: 10px;">
+        <p>Diese Website verwendet Cookies, um die bestmögliche Funktionalität bieten zu können. <a href="datenschutz.html" style="color: #fff; text-decoration: underline;">Mehr erfahren</a></p>
+        <button id="accept-cookies" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer;">Akzeptieren</button>
+        <button id="reject-cookies" style="background: #f44336; color: white; border: none; padding: 10px 20px; cursor: pointer;">Ablehnen</button>
+    </div>
+
+    <script>
+        // Warte bis das DOM geladen ist
+    document.addEventListener('DOMContentLoaded', function () {
+        // Überprüfe, ob der Benutzer bereits eine Entscheidung getroffen hat
+        if (Cookies.get('cookiesAccepted')) {
+            // Cookies wurden akzeptiert, verstecke den Cookie-Banner
+            document.getElementById('cookie-banner').style.display = 'none';
+        } else if (Cookies.get('cookiesRejected')) {
+            // Cookies wurden abgelehnt, entferne den Cookie-Banner vollständig
+            document.getElementById('cookie-banner').remove();
+        } else {
+            // Keine Entscheidung getroffen, zeige den Cookie-Banner
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+
+        // Event-Listener für "Akzeptieren"-Button
+        document.getElementById('accept-cookies').addEventListener('click', function () {
+            Cookies.set('cookiesAccepted', 'true', { expires: 365 });
+            document.getElementById('cookie-banner').style.display = 'none';
+        });
+
+        // Event-Listener für "Ablehnen"-Button
+        document.getElementById('reject-cookies').addEventListener('click', function () {
+            Cookies.set('cookiesRejected', 'true', { expires: 365 });
+            document.getElementById('cookie-banner').remove();
+        });
+    });
+            // Event-Listener für "Zum Warenkorb hinzufügen"-Buttons
+            var addToCartButtons = document.querySelectorAll('.addToCart');
+            addToCartButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Produktinformationen aus den Datenattributen lesen
+                    var productName = button.getAttribute('data-product-name');
+                    var productPrice = parseFloat(button.getAttribute('data-product-price'));
+
+                    // Produkt zum Warenkorb hinzufügen (localStorage)
+                    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    cart.push({
+                        name: productName,
+                        price: productPrice
+                    });
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // Feedback für den Benutzer
+                    alert('Das Produkt wurde zum Warenkorb hinzugefügt.');
+
+                    // Aktualisiere die Anzeige der Warenkorb-Anzahl in der Navigation
+                    updateCartCount();
+                });
+            });
+
+            // Funktion zur Aktualisierung der Warenkorb-Anzahl in der Navigation
+            function updateCartCount() {
+                var cart = JSON.parse(localStorage.getItem('cart')) || [];
+                var cartCount = document.getElementById('cart-count');
+                if (cartCount) {
+                    cartCount.textContent = cart.length.toString();
+                }
+            }
+
+            // Aktualisiere die Warenkorb-Anzahl beim Laden der Seite
+            updateCartCount();
+    </script>
+</body>
+</html>

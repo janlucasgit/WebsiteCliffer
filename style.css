@@ -1,0 +1,272 @@
+/* Globales Styling für die Seite */
+body {
+    font-family: Arial, sans-serif; /* Verwendet Arial als Standardschriftart */
+    margin: 0; /* Entfernt den Standardrand des Body */
+    padding: 0; /* Entfernt den Standard-Padding des Body */
+    background: #f4f4f4; /* Hintergrundfarbe des Body */
+    color: #333; /* Textfarbe für den gesamten Body */
+    display: flex; /* Verwendet Flexbox-Layout */
+    flex-direction: column; /* Richtung der Flexbox ist Spalte (vertikal) */
+    min-height: 100vh; /* Mindesthöhe des Viewports für die gesamte Seite */
+    align-items: center; /* Zentriert den Inhalt horizontal */
+}
+
+/* Styling für den Kopfbereich der Seite */
+header.mitte {
+    background: #333; /* Hintergrundfarbe des Headers */
+    color: #fff; /* Textfarbe im Header */
+    padding: 20px; /* Innenabstand im Header */
+    text-align: center; /* Zentriert den Text im Header */
+    width: 100%; /* Volle Breite des Headers */
+    animation: slideInDown 1s ease-out; /* Animationseffekt für das Einblenden */
+}
+
+/* Styling für das Logo im Header */
+header.mitte a img {
+    max-width: 100%; /* Maximale Breite des Logos innerhalb des Headers */
+    height: auto; /* Automatische Höhe basierend auf der Breite */
+}
+
+/* Styling für die Navigationsleiste */
+nav ul {
+    list-style: none; /* Entfernt Standardliste für die Navigation */
+    padding: 0; /* Entfernt Innenabstand der Liste */
+    margin: 0; /* Entfernt Außenabstand der Liste */
+    display: flex; /* Verwendet Flexbox-Layout für die Navigation */
+    justify-content: center; /* Zentriert die Navigation horizontal */
+    background: #444; /* Hintergrundfarbe der Navigation */
+    width: 100%; /* Volle Breite der Navigation */
+    animation: slideInUp 1s ease-out; /* Animationseffekt für das Einblenden */
+}
+
+/* Styling für einzelne Punkte in der Navigation */
+nav ul li {
+    margin: 0 15px; /* Außenabstand zwischen den Navigationspunkten */
+}
+
+/* Styling für Links in der Navigation */
+nav ul li a {
+    text-decoration: none; /* Entfernt Standardunterstreichung von Links */
+    color: #fff; /* Textfarbe der Links */
+    padding: 10px; /* Innenabstand der Links */
+    display: block; /* Blockelemente für die Links */
+    transition: background 0.3s; /* Übergangseffekt für den Hintergrund */
+}
+
+/* Hover-Styling für Links in der Navigation */
+nav ul li a:hover {
+    background: #555; /* Hintergrundfarbe bei Hover */
+}
+
+/* Styling für die Hauptabschnitte der Seite */
+section {
+    padding: 20px; /* Innenabstand der Hauptabschnitte */
+    max-width: 1200px; /* Maximale Breite der Hauptabschnitte */
+    width: 100%; /* Volle Breite der Hauptabschnitte */
+    text-align: center; /* Zentriert den Text in den Hauptabschnitten */
+    animation: fadeIn 1.5s ease-in; /* Animationseffekt für das Einblenden */
+}
+
+/* Styling für den Fußbereich der Seite */
+footer {
+    padding: 20px; /* Innenabstand im Fußbereich */
+    text-align: center; /* Zentriert den Text im Fußbereich */
+    width: 100%; /* Volle Breite des Fußbereichs */
+    background: #333; /* Hintergrundfarbe des Fußbereichs */
+    color: #fff; /* Textfarbe im Fußbereich */
+    margin-top: auto; /* Setzt den oberen Abstand automatisch */
+    animation: slideInUp 1s ease-out; /* Animationseffekt für das Einblenden */
+}
+
+/* Styling für den Scroll-Container */
+.scroll-container {
+    display: flex; /* Verwendet Flexbox-Layout */
+    overflow-x: auto; /* Horizontales Scrollen aktivieren */
+    scroll-behavior: smooth; /* Sanftes Scrollen */
+    padding: 20px 0; /* Innenabstand oberhalb und unterhalb des Containers */
+    width: 100%; /* Volle Breite des Containers */
+    animation: fadeIn 1.5s ease-in; /* Animationseffekt für das Einblenden */
+}
+
+/* Versteckt den Scrollbar in WebKit-basierten Browsern */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Styling für die Schaltfläche im Cookie-Banner */
+#cookie-banner button {
+    margin: 5px; /* Außenabstand der Schaltfläche */
+}
+
+/* Keyframes für den Slide-In-Down-Effekt */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframes für den Slide-In-Up-Effekt */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframes für den Fade-In-Effekt */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* CSS-Regel für maximale Breite der Bilder */
+img {
+    max-width: 200px; /* Maximale Breite der Bilder */
+    height: auto; /* Automatische Höhe basierend auf der Breite */
+    transition: transform 0.3s; /* Übergangseffekt für Transform */
+}
+
+/* Hover-Effekt für Bilder */
+img:hover {
+    transform: scale(1.1); /* Vergrößert das Bild um 10% bei Hover */
+}
+
+/* Styling für Produkttexte */
+.product-text {
+    text-align: center; /* Zentriert den Text */
+    font-size: 14px; /* Schriftgröße */
+    margin-top: 10px; /* Oberer Abstand */
+}
+
+/* Spezifisches Styling für die Produktseite */
+.lego-product {
+    display: flex; /* Verwendet Flexbox-Layout */
+    flex-direction: column; /* Spaltenrichtung für Flexbox */
+    align-items: center; /* Zentriert die Elemente horizontal */
+    margin: 20px; /* Außenabstand */
+    padding: 20px; /* Innenabstand */
+    border: 1px solid #ddd; /* Rahmenstil */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Schatten */
+    transition: transform 0.3s; /* Übergangseffekt für Transform */
+}
+
+/* Styling für Bilder in Produktsektionen */
+.lego-product img {
+    max-width: 300px; /* Maximale Breite des Bildes */
+    height: auto; /* Automatische Höhe basierend auf der Breite */
+    transition: transform 0.3s; /* Übergangseffekt für Transform */
+    margin-bottom: 10px; /* Unterer Abstand */
+}
+
+/* Hover-Effekt für das Produkt */
+.lego-product:hover {
+    transform: scale(1.05); /* Vergrößert das Element um 5% bei Hover */
+}
+
+/* Styling für den Text im Produkt */
+.lego-product-text {
+    text-align: center; /* Zentriert den Text */
+    font-size: 16px; /* Schriftgröße */
+    margin-top: 10px; /* Oberer Abstand */
+}
+
+/* Media Query für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .lego-product img {
+        max-width: 100%; /* Maximale Breite des Bildes für kleinere Bildschirme */
+    }
+}
+
+/* Styling für graue Produktelemente */
+.product-itemgrau {
+    position: relative; /* Relative Positionierung */
+}
+
+/* Graustufenfilter bei Hover */
+.product-itemgrau:hover {
+    filter: grayscale(100%); /* Graustufenfilter */
+}
+
+/* Styling für die 'Zum Warenkorb hinzufügen'-Schaltfläche */
+.addToCart {
+    position: absolute; /* Absolute Positionierung */
+    top: 50%; /* 50% vom oberen Rand */
+    left: 50%; /* 50% vom linken Rand */
+    transform: translate(-50%, -50%); /* Zentriert das Element */
+    background-color: #333; /* Hintergrundfarbe */
+    color: white; /* Textfarbe */
+    padding: 10px 20px; /* Innenabstand */
+    display: none; /* Standardmäßig ausgeblendet */
+}
+
+
+/* Styling für die Anzeige des "addToCart" Buttons beim Hover */
+.product-itemgrau:hover .addToCart {
+    display: block; /* Zeigt den addToCart Button an, wenn das Produkt grau ist und der Mauszeiger darüber schwebt */
+}
+
+/* CSS für das Dropdown-Menü */
+.lego222-dropdown {
+    position: relative; /* Setzt die Position des Dropdown-Menüs relativ zum Elternelement */
+    display: inline-block; /* Macht das Dropdown-Menü zu einem Inline-Block-Element */
+}
+
+.lego222-dropdown-content {
+    display: none; /* Versteckt den Inhalt des Dropdown-Menüs standardmäßig */
+    position: absolute; /* Positioniert das Dropdown-Menü absolut innerhalb des relativen Elternelements */
+    background-color: #f9f9f9; /* Hintergrundfarbe des Dropdown-Menüs */
+    min-width: 160px; /* Mindestbreite des Dropdown-Menüs */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Schatten um das Dropdown-Menü */
+    z-index: 1; /* Legt die Stapelreihenfolge des Dropdown-Menüs fest */
+}
+
+.lego222-dropdown-content a {
+    color: black; /* Textfarbe der Links im Dropdown-Menü */
+    padding: 12px 16px; /* Innenabstand der Links im Dropdown-Menü */
+    text-decoration: none; /* Entfernt die Unterstreichung der Links im Dropdown-Menü */
+    display: block; /* Macht die Links im Dropdown-Menü zu Block-Elementen */
+}
+
+.lego222-dropdown-content a:hover {
+    background-color: #f1f1f1; /* Hintergrundfarbe der Links im Dropdown-Menü bei Hover */
+}
+
+.lego222-dropdown:hover .lego222-dropdown-content {
+    display: block; /* Zeigt das Dropdown-Menü an, wenn über das Dropdown-Element gehovert wird */
+}
+
+a {
+    color: #Ff8c00; /* Textfarbe für alle Links auf der Seite (Dunkelorange) */
+    text-decoration: none; /* Entfernt standardmäßige Unterstreichung der Links */
+}
+
+/* Stil für die Warenkorb-Liste */
+#cart-items {
+    list-style-type: none; /* Entfernt die Listenpunkte */
+    padding: 0; /* Kein Innenabstand für die Liste */
+}
+
+#cart-items li {
+    background-color: #fff; /* Hintergrundfarbe für jedes Listenelement */
+    padding: 20px; /* Innenabstand für jedes Listenelement */
+    margin-bottom: 10px; /* Abstand unter jedem Listenelement */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schatten für jedes Listenelement */
+}
+
+#cart-items li:last-child {
+    margin-bottom: 0; /* Kein Abstand nach dem letzten Listenelement */
+}
+

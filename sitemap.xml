@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="localhost/Modulprüfung293/sitemap/0.9">
+
+  <url>
+    <loc>http://localhost/Modulprüfung293/index.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost/Modulprüfung293/products.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>0.8</priority>
+	<changefreq>never</changefreq>
+  </url>
+
+  <url>
+    <loc>http://localhost/Modulprüfung293/contact.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost/Modulprüfung293/clothing.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+
+   <url>
+    <loc>http://localhost/Modulprüfung293/Sportschuhe.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+   <url>
+    <loc>http://localhost/Modulprüfung293/secretsite.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost/Modulprüfung293/datenschutz.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost/Modulprüfung293/impressum.html</loc>
+    <lastmod>2024-06-13</lastmod>
+    <priority>0.6</priority>
+  </url>
+ 
+</urlset>

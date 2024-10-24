@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warenkorb</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Verweis auf Ihre CSS-Datei -->
+</head>
+<body>
+    <header class="mitte" id="mitte">
+        <a href="index.html">
+            <img width="300" src="logocliffer.jpg" alt="Logo Cliffer">
+        </a>
+
+        <div id="cart-container">
+            <a href="cart.html">Warenkorb (<span id="cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="mitte">
+            <li><a href="index.html">Startseite</a></li>
+            <li class="lego222-dropdown">
+                <a href="products.html">Unsere Produkte</a>
+                <ul class="lego222-dropdown-content">
+                    <li><a href="shoes.html">Schuhe</a></li>
+                    <li><a href="clothing.html">Kleidungsstücke</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cookie-Banner -->
+    <div id="cookie-banner" style="display:none; position: fixed; bottom: 0; width: 100%; background: #333; color: #fff; text-align: center; padding: 10px;">
+        <p>Diese Website verwendet Cookies, um die bestmögliche Funktionalität bieten zu können. <a href="datenschutz.html" style="color: #fff; text-decoration: underline;">Mehr erfahren</a></p>
+        <button id="accept-cookies" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer;">Akzeptieren</button>
+        <button id="reject-cookies" style="background: #f44336; color: white; border: none; padding: 10px 20px; cursor: pointer;">Ablehnen</button>
+    </div>
+
+    <div class="container">
+        <h1>Warenkorb</h1>
+        <ul id="cart-items">
+            <!-- Hier werden die Produkte aus dem Warenkorb angezeigt -->
+        </ul>
+    </div>
+
+    <footer>&copy; 2024 Cliffer Shop. <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></footer>
+
+    <!-- Skript für die Anzeige und Verwaltung des Warenkorbs -->
+    <script>
+        // Warenkorb aus localStorage auslesen und anzeigen
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        var cartList = document.getElementById('cart-items');
+        var cartCount = document.getElementById('cart-count');
+
+        // Funktion zum Anzeigen der Produkte im Warenkorb
+        function renderCart() {
+            // Zuerst leeren wir die aktuelle Liste, um sie neu zu erstellen
+            cartList.innerHTML = '';
+
+            // Durchlaufe den Warenkorb und füge jedes Produkt als Listenelement hinzu
+            cart.forEach(function (item, index) {
+                var li = document.createElement('li');
+                li.textContent = item.name + ' - Preis: ' + item.price + ' Fr.';
+                
+                // Erstelle einen Button zum Entfernen des Produkts aus dem Warenkorb
+                var removeButton = document.createElement('button');
+                removeButton.textContent = 'Entfernen';
+                removeButton.addEventListener('click', function () {
+                    // Entferne das Produkt aus dem Warenkorb-Array
+                    cart.splice(index, 1);
+                    // Aktualisiere den Warenkorb im localStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    // Rendere den Warenkorb erneut, um die Änderungen anzuzeigen
+                    renderCart();
+                });
+
+                // Füge den Entfernungsbutton zum Listenelement hinzu
+                li.appendChild(removeButton);
+                cartList.appendChild(li);
+            });
+
+            // Aktualisiere die Anzahl der Produkte im Warenkorb
+            cartCount.textContent = cart.length.toString();
+        }
+
+        // Initialisiere den Warenkorb beim Laden der Seite
+        renderCart();
+    </script>
+
+    <script>
+        // Event-Listener für das Akzeptieren oder Ablehnen von Cookies
+        document.addEventListener('DOMContentLoaded', function () {
+            // Überprüfe, ob der Benutzer bereits eine Entscheidung getroffen hat
+            if (Cookies.get('cookiesAccepted')) {
+                // Cookies wurden akzeptiert, verstecke den Cookie-Banner
+                document.getElementById('cookie-banner').style.display = 'none';
+            } else if (Cookies.get('cookiesRejected')) {
+                // Cookies wurden abgelehnt, entferne den Cookie-Banner vollständig
+                document.getElementById('cookie-banner').remove();
+            } else {
+                // Keine Entscheidung getroffen, zeige den Cookie-Banner
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+
+            // Event-Listener für "Akzeptieren"-Button
+            document.getElementById('accept-cookies').addEventListener('click', function () {
+                Cookies.set('cookiesAccepted', 'true', { expires: 365 });
+                document.getElementById('cookie-banner').style.display = 'none';
+            });
+
+            // Event-Listener für "Ablehnen"-Button
+            document.getElementById('reject-cookies').addEventListener('click', function () {
+                Cookies.set('cookiesRejected', 'true', { expires: 365 });
+                document.getElementById('cookie-banner').remove();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /Modulprüfung293/secretsite.html
+Disallow: /Modulprüfung293/impressum.html
+Disallow: /Modulprüfung293/datenschutz.html
+
+# Allow everything else
+Allow: /
+Sitemap: localhost/Modulprüfung Website (M293)/sitemap.xml

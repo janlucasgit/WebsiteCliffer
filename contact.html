@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Cliffer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+<body>
+    <header class="mitte" id="mitte">
+        <a href="index.html">
+            <img width="300" src="logocliffer.jpg" alt="Logo Cliffer" />
+        </a>
+    </header>
+
+    <nav>
+        <ul class="mitte">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="products.html">Unsere Produkte</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact-section">
+        <h1>Kontaktiere uns</h1>
+        <p>Du hast Fragen zu unseren Produkten oder möchtest mehr über Cliffer erfahren? Kontaktiere uns gerne!</p>
+        <div class="contact-info">
+            <p><strong>E-Mail:</strong> info@cliffer.com</p>
+            <p><strong>Telefon:</strong> +49 123 456789</p>
+            <p><strong>Adresse:</strong> Cliffer GmbH, Musterstraße 123, 12345 Musterstadt</p>
+        </div>
+        <p>Oder verwende einfach das untenstehende Formular, um uns eine Nachricht zu senden:</p>
+        <form id="contact-form" action="submit_contact_form.php" method="post">
+            <label for="name">Dein Name:</label>
+            <br>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <br><br>
+            <label for="email">Deine E-Mail:</label>
+            <br>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <br><br>
+            <label for="message">Deine Nachricht:</label>
+            <br>
+            <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+            <br><br>
+            <div class="form-buttons">
+                <input type="submit" value="Nachricht senden" style="background-color: #333; color: #fff; border: none; padding: 10px 20px; cursor: pointer;">
+                <input type="reset" value="Zurücksetzen" style="background-color: #bbb; color: #333; border: none; padding: 10px 20px; cursor: pointer;">
+            </div>
+            <p class="error-message" id="form-error-message" style="display: none; color: red;">Bitte fülle alle Felder aus.</p>
+            <p class="success-message" id="form-success-message" style="display: none; color: green;">Nachricht wurde erfolgreich gesendet!</p>
+        </form>
+    </section>
+
+    <footer>&copy; 2024 Cliffer Shop. <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></footer>
+
+    <div id="cookie-banner" style="display:none; position: fixed; bottom: 0; width: 100%; background: #333; color: #fff; text-align: center; padding: 10px;">
+        <p>Diese Website verwendet Cookies, um die bestmögliche Funktionalität bieten zu können. <a href="datenschutz.html" style="color: #fff; text-decoration: underline;">Mehr erfahren</a></p>
+        <button id="accept-cookies" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer;">Akzeptieren</button>
+        <button id="reject-cookies" style="background: #f44336; color: white; border: none; padding: 10px 20px; cursor: pointer;">Ablehnen</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Cookie-Banner anzeigen, wenn erforderlich
+            if (!Cookies.get('cookiesAccepted') && !Cookies.get('cookiesRejected')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+
+            // Event-Listener für "Akzeptieren"-Button des Cookie-Banners
+            document.getElementById('accept-cookies').addEventListener('click', function () {
+                Cookies.set('cookiesAccepted', 'true', { expires: 365 });
+                document.getElementById('cookie-banner').style.display = 'none';
+            });
+
+            // Event-Listener für "Ablehnen"-Button des Cookie-Banners
+            document.getElementById('reject-cookies').addEventListener('click', function () {
+                Cookies.set('cookiesRejected', 'true', { expires: 365 });
+                document.getElementById('cookie-banner').style.display = 'none';
+            });
+
+            // Event-Listener für das Kontaktformular
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Standardaktion des Formulars verhindern
+
+                // Formularvalidierung
+                var name = document.getElementById('name').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var message = document.getElementById('message').value.trim();
+
+                if (name === '' || email === '' || message === '') {
+                    document.getElementById('form-error-message').style.display = 'block';
+                    document.getElementById('form-success-message').style.display = 'none';
+                } else {
+                    // Hier würde normalerweise das Formular an submit_contact_form.php gesendet werden
+                    // Da wir das hier nicht implementieren können, zeigen wir nur eine Erfolgsmeldung an
+                    document.getElementById('form-error-message').style.display = 'none';
+                    document.getElementById('form-success-message').style.display = 'block';
+                    // Formular zurücksetzen
+                    document.getElementById('contact-form').reset();
+                }
+            });
+
+            // Event-Listener für den "Zurücksetzen"-Button
+            document.getElementById('contact-form').addEventListener('reset', function () {
+                document.getElementById('form-error-message').style.display = 'none';
+                document.getElementById('form-success-message').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
